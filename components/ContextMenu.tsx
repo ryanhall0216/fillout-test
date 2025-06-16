@@ -61,20 +61,19 @@ const ContextMenu: React.FC<ContextMenuProps> = ({
   return (
     <div
       ref={menuRef}
-      className="fixed z-50 bg-white shadow-xl rounded-md pt-0 w-48 border border-slate-200" // Removed pt-2
+      className="fixed z-50 bg-white shadow-xl rounded-md pt-0 w-48 border border-slate-200 text-black"
       style={{ top: position.y, left: position.x }}
       data-testid={`context-menu-${pageId}`}
       role="menu"
       aria-orientation="vertical"
       aria-labelledby={`page-item-${pageId}-options-button`} 
     >
-      <div className="px-4 py-2 mb-1 border-b border-slate-200 bg-[#FAFBFC]"> {/* Added bg and adjusted padding */}
+      <div className="px-4 py-2 mb-1 border-b border-slate-200 bg-[#FAFBFC]">
         <h3 className="text-sm font-semibold text-slate-800">Settings</h3>
       </div>
       <button
         onClick={() => handleAction(() => onSetAsFirstPage(pageId))}
-        className="w-full text-left px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 flex items-center transition-colors" // Changed text to text-slate-700
-        role="menuitem"
+        className="w-full text-left px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 flex items-center transition-colors"
       >
         <FlagIcon className="w-4 h-4 mr-2 text-blue-600" /> Set as first page
       </button>
@@ -99,8 +98,8 @@ const ContextMenu: React.FC<ContextMenuProps> = ({
       >
         <DocumentDuplicateIcon /> Duplicate
       </button>
-      <div className="flex justify-center my-1"> {/* Wrapper for centering HR */}
-        <hr className="w-[90%] border-t border-slate-300" /> {/* Centered divider, 80% width */}
+      <div className="flex justify-center my-1">
+        <hr className="w-[90%] border-t border-slate-300" />
       </div>
       <button
         onClick={() => handleAction(() => onDelete(pageId))}

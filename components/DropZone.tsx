@@ -31,20 +31,18 @@ const DropZone: React.FC<DropZoneProps> = ({
 
   const handleAddClick = (event: React.MouseEvent) => {
     event.stopPropagation();
-    if (onAddPageInZone && !isDraggingActive) { // Prevent click if a drag is active anywhere
+    if (onAddPageInZone && !isDraggingActive) {
       onAddPageInZone(index);
     }
   };
 
   let widthClass: string;
   if (isDragOver) {
-    widthClass = 'w-12'; // Wider when dragging over this specific zone
+    widthClass = 'w-12';
   } else if (canShowAddButton) {
-    // Width accommodates: left-line (w-3) + btn_margin (mx-1) + button (p-1 + icon w-5 + p-1) + btn_margin (mx-1) + right-line (w-3)
-    // Approx: 3 + 1 + 1+5+1 + 1 + 3 = 15. So w-16 gives a bit of space.
     widthClass = 'w-16'; 
   } else {
-    widthClass = 'w-4'; // Narrow zone for the first drop target (when pages exist) or if no add button
+    widthClass = 'w-4';
   }
 
   return (
@@ -70,7 +68,7 @@ const DropZone: React.FC<DropZoneProps> = ({
             className={`p-1 mx-1 rounded-full text-slate-500 transition-all duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500
                         ${isDraggingActive ? 'opacity-50 cursor-default bg-slate-100' : 'bg-white hover:text-blue-600 hover:bg-blue-100 shadow-sm hover:shadow-md'}`}
             aria-label={`Add new page at position ${index}`}
-            disabled={isDraggingActive} // Disable button if a global drag is happening
+            disabled={isDraggingActive}
           >
             <PlusIcon className="w-4 h-4 text-black" />
           </button>
